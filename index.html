@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-base-200 pt-16">
+<body class="bg-base-200 py-16">
     <header class="w-10/12 mx-auto">
         <h1 class="text-3xl font-bold">Job Application Tracker</h1>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 py-5">
@@ -25,8 +25,57 @@
                 <h2 class="text-2xl font-bold mt-2 text-red-600">0</h2>
             </div>
         </div>
-
     </header>
-    
+
+    <section id="main" class="w-10/12 mx-auto">
+        <div class="flex justify-between py-7">
+            <h3 class="text-xl font-bold text-base-content/80">Available Jobs</h3>
+            <h4 class="text-lg font-semibold text-base-content/60">8 Jobs</h4>
+        </div>
+        <div class="flex gap-4">
+            <button class="btn btn-primary">All Jobs</button>
+            <button class="btn">Interview</button>
+            <button class="btn">Rejected</button>
+        </div>
+        <div class="card mt-7 p-5 bg-base-100 space-y-5 rounded-lg">
+            <div class="flex justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-base-content/70">Mobile First Crop</h3>
+                    <h4 class="text-md font-semibold text-base-content/50">React Native Devloper</h4>
+                </div>
+                <div class="p-3 border border-gray-300 rounded-full opacity-50"><i class="fa-solid fa-trash-can"></i></div>
+            </div>
+            <h5 class="text-[14px] font-semibold text-base-content/50">Remote • Full-time • $130,000 - $175,000</h5>
+            <div>
+                <button class="btn bg-[#EEF4FF] py-1.5 px-5 text-base">NOT APPLIED</button>
+            </div>
+            <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+            <div class="space-x-2">
+                <button class="btn border bg-base-100 border-green-600 text-green-600">INTERVIEW</button>
+                <button class="btn border bg-base-100 border-red-600 text-red-600">REJECTED</button>
+            </div>
+        </div>
+        <div class="card mt-7 p-5 bg-base-100 space-y-5 rounded-lg">
+            <div class="flex justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-base-content/70">Mobile First Crop</h3>
+                    <h4 class="text-md font-semibold text-base-content/50">React Native Devloper</h4>
+                </div>
+                <div class="p-3 border border-gray-300 rounded-full opacity-50"><i class="fa-solid fa-trash-can"></i></div>
+            </div>
+            <h5 class="text-[14px] font-semibold text-base-content/50">Remote • Full-time • $130,000 - $175,000</h5>
+            <div>
+                <button class="btn bg-[#EEF4FF] py-1.5 px-5 text-base">NOT APPLIED</button>
+            </div>
+            <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+            <div class="space-x-2">
+                <button class="btn border bg-base-100 border-green-600 text-green-600">INTERVIEW</button>
+                <button class="btn border bg-base-100 border-red-600 text-red-600">REJECTED</button>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
