@@ -27,15 +27,15 @@
         </div>
     </header>
 
-    <section id="main" class="w-10/12 mx-auto">
+    <main id="main" class="w-10/12 mx-auto">
         <div class="flex justify-between py-7">
             <h3 class="text-xl font-bold text-base-content/80">Available Jobs</h3>
             <h4 class="text-lg font-semibold text-base-content/60">8 Jobs</h4>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">
-            <button onclick="show('card-container')" id="all-counter-tab" class="btn btn-primary">All Jobs</button>
-            <button onclick="show('default-tab'), addClass()" id="interview-tab" class="btn">Interview</button>
-            <button onclick="show('default-tab')" id="rejected-tab" class="btn">Rejected</button>
+            <button onclick="show('card-container'), toggleStyle('all-counter-tab')" id="all-counter-tab" class="btn btn-primary">All Jobs</button>
+            <button onclick="show('default-tab'), toggleStyle('interview-tab')" id="interview-tab" class="btn">Interview</button>
+            <button onclick="show('default-tab'), toggleStyle('rejected-tab')" id="rejected-tab" class="btn">Rejected</button>
         </div>
 
        <div id="card-container">
@@ -193,7 +193,7 @@
             </div>
         </div>
        </div>
-    </section>
+    </main>
 
     <section id="default-tab" class="w-10/12 mx-auto hidden">
         <div class="card mt-7 px-5 py-15 bg-base-100 space-y-1 rounded-lg text-center items-center">
@@ -205,5 +205,6 @@
 
     <script src="machine.js"></script>
     <script src="script.js"></script>
+    <script src="scriptPractice.js"></script>
 </body>
 </html>
