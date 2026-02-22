@@ -31,9 +31,9 @@ function toggleStyle(id){
     const selected = document.getElementById(id);
     selected.classList.add('btn-primary');
 
-    // if(id == 'interview-tab'){
-    //     filteredSection.classList.remove('hidden');
-    // }
+    if(id == 'interview-tab'){
+        filteredSection.classList.remove('hidden');
+    }
 
 }
 
