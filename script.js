@@ -1,3 +1,7 @@
+// ----------
+// let currentStatus = 'all-jobs';
+
+
 // btn toggle complete
 const totalTab = document.getElementById('card-container')
 const interviewTab = document.getElementById('default-tab');
@@ -31,9 +35,10 @@ function toggleStyle(id){
     rejectedTab2.classList.add('btn');
 
     const selected = document.getElementById(id);
-    selected.classList.add('btn-primary');
-
     currentStatus = id;
+
+    selected.classList.add('btn-primary');
+    // currentStatus = id;
 
     if(id == 'interview-tab'){
         filteredSection.classList.remove('hidden');
@@ -49,7 +54,7 @@ function toggleStyle(id){
 // --------------
 let interviewList = [];
 let rejectedList = [];
-let currentStatus = 'all-jobs';
+
 
 // all application count
  const application = document.getElementsByClassName('card');
@@ -106,11 +111,12 @@ mainContainer.addEventListener('click', function(event){
         }
         rejectedList = rejectedList.filter(item => item.jobName != cardInfo.jobName);
 
-        if(currentStatus == 'interview-tab'){
-            
-        }
+        // if(currentStatus == 'interview-tab'){
+        //     renderInterview ();
+        // }
         calculateCount();
-        renderInterview ();
+        renderInterview();
+        
     }
     else  if(event.target.classList.contains('rejected-btn')){
         const parentNode = event.target.parentNode.parentNode;
@@ -144,9 +150,13 @@ mainContainer.addEventListener('click', function(event){
         }
         interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName);
         
+        // if(currentStatus == 'interview-tab'){
+        //     renderInterview ();
+        // }
 
         calculateCount();
-        renderRejected ();
+        renderRejected();
+        
     }
 
 })
