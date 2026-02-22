@@ -14,6 +14,8 @@ function show(id){
     interviewTab.classList.add('hidden');
     rejectedTab.classList.add('hidden');
 
+    filteredSection.classList.add('hidden');
+
     const selected = document.getElementById(id);
     selected.classList.remove('hidden');
 }
@@ -29,10 +31,9 @@ function toggleStyle(id){
     const selected = document.getElementById(id);
     selected.classList.add('btn-primary');
 
-    if(id == 'interview-tab'){
-        totalCard.classList.add('hidden');
-        filteredSection.classList.remove('hidden');
-    }
+    // if(id == 'interview-tab'){
+    //     filteredSection.classList.remove('hidden');
+    // }
 
 }
 
