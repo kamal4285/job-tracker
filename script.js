@@ -27,7 +27,12 @@ function show(id){
 
     if(id = 'interview-tab'){
         if(totalInterview.innerText > 0){
-            
+            interviewTab.classList.add('hidden');
+        }
+    }
+    if(id = 'rejected-tab'){
+        if(totalRejected.innerText > 0){
+            rejectedTab.classList.add('hidden');
         }
     }
 }
@@ -236,7 +241,16 @@ const deleteFunction = document.querySelectorAll('.delete-icon');
     deleteFunction.forEach(function(deleteFunction){
         deleteFunction.addEventListener('click', function(event){
             console.log(event.target.parentNode.parentNode.parentNode.remove(event.target));
-            calculateCount();
+            const card = event.target.closest('.card');
+    const jobName = card.querySelector('.job-name').innerText;
+        
+        interviewList = interviewList.filter(item => item.jobName !== jobName); // Remove from Interview list
+        rejectedList = rejectedList.filter(item => item.jobName !== jobName); //remove from rejected list
+        
+        renderInterview();
+        renderRejected();
+        calculateCount();
+        
         })
     })
 
