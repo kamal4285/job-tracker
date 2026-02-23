@@ -24,6 +24,12 @@ function show(id){
 
     const selected = document.getElementById(id);
     selected.classList.remove('hidden');
+
+    if(id = 'interview-tab'){
+        if(totalInterview.innerText > 0){
+            
+        }
+    }
 }
 function toggleStyle(id){
     totalTab2.classList.remove('btn-primary');
@@ -119,6 +125,7 @@ mainContainer.addEventListener('click', function(event){
         //  }
         calculateCount();
         renderInterview();
+        renderRejected();
         
     }
     else  if(event.target.classList.contains('rejected-btn')){
@@ -159,7 +166,7 @@ mainContainer.addEventListener('click', function(event){
 
         calculateCount();
         renderRejected();
-        
+        renderInterview();
     }
 
 })
@@ -234,18 +241,6 @@ const deleteFunction = document.querySelectorAll('.delete-icon');
     })
 
 
-
-
-
-
-// delete application
-// const deleteBtn = document.querySelectorAll('.delete-btn');
-// deleteBtn.forEach(function(btn){
-//     btn.addEventListener('click', function(){
-//         console.log('hi')
-//         btn.parentElement.remove();
-//     })
-// })
 
 
 // interview and reject counting
