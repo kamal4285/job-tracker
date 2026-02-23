@@ -1,5 +1,5 @@
 // ----------
-// let currentStatus = 'all-jobs';
+let currentStatus = '';
 
 
 // btn toggle complete
@@ -38,7 +38,7 @@ function toggleStyle(id){
     currentStatus = id;
 
     selected.classList.add('btn-primary');
-    // currentStatus = id;
+
 
     if(id == 'interview-tab'){
         filteredSection.classList.remove('hidden');
@@ -64,6 +64,8 @@ const totalApplication = document.getElementById('total-application');
 const totalInterview = document.getElementById('total-interview');
 // total rejected
 const totalRejected = document.getElementById('total-rejected');
+// total card in container
+const jobCard = document.getElementById('job-card');
 
 const totalCard = document.getElementById('card-container');
 
@@ -73,6 +75,7 @@ function calculateCount(){
     totalApplication.innerText = totalCard.children.length;
     totalInterview.innerText = interviewList.length;
     totalRejected.innerText = rejectedList.length;
+    jobCard.innerText = totalCard.children.length;
 }
 calculateCount();
 
@@ -111,9 +114,9 @@ mainContainer.addEventListener('click', function(event){
         }
         rejectedList = rejectedList.filter(item => item.jobName != cardInfo.jobName);
 
-        // if(currentStatus == 'interview-tab'){
-        //     renderInterview ();
-        // }
+        // if(currentStatus == 'REJECTED'){
+        //      renderRejected();
+        //  }
         calculateCount();
         renderInterview();
         
@@ -151,7 +154,7 @@ mainContainer.addEventListener('click', function(event){
         interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName);
         
         // if(currentStatus == 'interview-tab'){
-        //     renderInterview ();
+        //     renderInterview();
         // }
 
         calculateCount();
@@ -219,6 +222,16 @@ function renderRejected (){
         filterSectionR.appendChild(div);
     }
 }
+
+
+// delete btn
+const deleteFunction = document.querySelectorAll('.delete-icon');
+    deleteFunction.forEach(function(deleteFunction){
+        deleteFunction.addEventListener('click', function(event){
+            console.log(event.target.parentNode.parentNode.parentNode.remove(event.target));
+            calculateCount();
+        })
+    })
 
 
 
