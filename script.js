@@ -14,6 +14,8 @@ const rejectedTab2 = document.getElementById('rejected-tab');
 const filteredSection = document.getElementById('filtered-section');
 const filteredSectionR = document.getElementById('filtered-rejected-section');
 
+
+// tab function (color and new card hidden and show)
 function show(id){
     totalTab.classList.add('hidden');
     interviewTab.classList.add('hidden');
@@ -179,6 +181,7 @@ mainContainer.addEventListener('click', function(event){
 const filterSection = document.getElementById('filtered-section');
 const filterSectionR = document.getElementById('filtered-rejected-section');
 
+
 function renderInterview (){
     filterSection.innerHTML = '';
     for(let interview of interviewList){
@@ -206,6 +209,7 @@ function renderInterview (){
         filterSection.appendChild(div);
     }
 }
+
 
 function renderRejected (){
     filterSectionR.innerHTML = '';
@@ -237,60 +241,37 @@ function renderRejected (){
 
 
 // delete btn
-const deleteFunction = document.querySelectorAll('.delete-icon');
-    deleteFunction.forEach(function(deleteFunction){
-        deleteFunction.addEventListener('click', function(event){
-            console.log(event.target.parentNode.parentNode.parentNode.remove(event.target));
-            const card = event.target.closest('.card');
-    const jobName = card.querySelector('.job-name').innerText;
-        
-        interviewList = interviewList.filter(item => item.jobName !== jobName); // Remove from Interview list
-        rejectedList = rejectedList.filter(item => item.jobName !== jobName); //remove from rejected list
-        
-        renderInterview();
-        renderRejected();
-        calculateCount();
-        
-        })
-    })
+// const deleteFunction = document.querySelectorAll('.delete-icon');
 
-
-
-
-// interview and reject counting
-// let applicationStatus = null;
-// let totalInterview = 0;
-// let totalReject = 0;
-
-// const totalI = document.getElementById('total-interview');
-// const totalR = document.getElementById('total-rejected');
-// function updateCount(){
-//     totalI.innerText = totalInterview;
-//     totalR.innerText = totalReject;
-// }
-
-
-// document.getElementsByClassName('interview-btn').addEventListener('click', function(){
-//     console.log('hello world')
-//     if(applicationStatus !== 'rejected'){
-//         if(applicationStatus === 'intrview'){
-//         totalReject--;
-//        }
-//        totalInterview++;
-//        applicationStatus = 'rejected';
+//     deleteFunction.forEach(function(deleteFunction){
        
-//        updateCount();
-//     }
-// })
-// document.getElementsByClassName('rejected-btn').addEventListener('click', function(){
-//      if(applicationStatus !== 'interview'){
-//        if(applicationStatus === 'rejected'){
-//         totalInterview--;
-//        }
-//        totalReject++;
-//        applicationStatus = 'interview';
-       
-//        updateCount();
-//     }
-// })
+//         deleteFunction.addEventListener('click', function(event){
+//             console.log(event.target.parentNode.parentNode.parentNode.remove(event.target));
+//             const card = event.target.closest('.card');
+//     const jobName = card.querySelector('.job-name').innerText;
+        
+//         interviewList = interviewList.filter(item => item.jobName !== jobName); // Remove from Interview list
+//         rejectedList = rejectedList.filter(item => item.jobName !== jobName); //remove from rejected list
+        
+//         renderInterview();
+//         renderRejected();
+//         calculateCount();
+        
+//         })
+//     })
+
+
+// delete button
+const deleteIcons = document.querySelectorAll('.delete-icon');
+
+deleteIcons.forEach(function(icon) {
+  icon.addEventListener('click', function(event) {
+
+    const card = event.target.closest('.card'); // find the card
+    card.remove(); // remove the card
+renderInterview();
+         renderRejected();
+         calculateCount();
+  });
+});
 
