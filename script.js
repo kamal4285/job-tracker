@@ -240,88 +240,31 @@ function renderRejected (){
 }
 
 
-// delete btn
-// const deleteFunction = document.querySelectorAll('.delete-icon');
+//delete btn
+const deleteFunction = document.querySelectorAll('.delete-icon');
 
-//     deleteFunction.forEach(function(deleteFunction){
+    deleteFunction.forEach(function(deleteFunction){
        
-//         deleteFunction.addEventListener('click', function(event){
-//             console.log(event.target.parentNode.parentNode.parentNode.remove(event.target));
-//             const card = event.target.closest('.card');
-//     const jobName = card.querySelector('.job-name').innerText;
+        deleteFunction.addEventListener('click', function(event){
+            //console.log(event.target.parentNode.parentNode.parentNode.remove(event.target));
+            const card = event.target.closest('.card');
+            card.remove();
         
-//         interviewList = interviewList.filter(item => item.jobName !== jobName); // Remove from Interview list
-//         rejectedList = rejectedList.filter(item => item.jobName !== jobName); //remove from rejected list
+        const jobName = card.querySelector('.job-name').innerText;
         
-//         renderInterview();
-//         renderRejected();
-//         calculateCount();
+        interviewList = interviewList.filter(item => item.jobName !== jobName); // Remove from Interview list
+        rejectedList = rejectedList.filter(item => item.jobName !== jobName); //remove from rejected list
         
-//         })
-//     })
-
-
-// delete button
-const deleteIcons = document.querySelectorAll('.delete-icon');
-
-deleteIcons.forEach(function(icon) {
-  icon.addEventListener('click', function(event) {
-
-    const card = event.target.closest('.card'); // find the card
-    card.remove(); // remove the card
-    
-    renderInterview();
-    renderRejected();
-    calculateCount();
-  });
-});
-
-
-
-// ---------------
-filterSection.addEventListener('click', function(event){
-      if(event.target.classList.contains('rejected-btn')){
-        const parentNode = event.target.parentNode.parentNode;
-        const jobName = parentNode.querySelector('.job-name').innerText;
-        const jobDegignation =parentNode.querySelector('.job-designation').innerText;
-        const deleteIcon = parentNode.querySelector('.delete-icon').innerText;
-        const location = parentNode.querySelector('.location').innerText;
-        const statusBtn = parentNode.querySelector('.status-btn').innerText;
-        const jobInfo = parentNode.querySelector('.job-info').innerText;
-        const interviewBtn = parentNode.querySelector('.interview-btn').innerText;
-        const rejectedBtn = parentNode.querySelector('.rejected-btn').innerText;
-         parentNode.querySelector('.status-btn').innerText = 'REJECTED';
-
-        //console.log(jobName, jobDegignation, deleteIcon,location, statusBtn, jobInfo);
-        const cardInfo = {
-            jobName,
-            jobDegignation,
-            deleteIcon,
-            location,
-            statusBtn: 'REJECTED',
-            jobInfo,
-            interviewBtn,
-            rejectedBtn
-        }
-        //console.log(cardInfo);
-
-        const jobNameExist = rejectedList.find(item => item.jobName == cardInfo.jobName)
-       
-        if(!jobNameExist){
-            rejectedList.push(cardInfo);
-        }
-        interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName);
-        
-
-        calculateCount();
-        renderRejected();
         renderInterview();
-    }
+        renderRejected();
+        calculateCount();
+        })
+    });
+    
 
-})
 
 
-// ---------------
+//alternation card interview to rejected tab
 filterSectionR.addEventListener('click', function(event){
       if(event.target.classList.contains('interview-btn')){
         const parentNode = event.target.parentNode.parentNode;
@@ -362,3 +305,46 @@ filterSectionR.addEventListener('click', function(event){
     }
 
 })
+
+// alternation card rejected to interrview tab
+filterSection.addEventListener('click', function(event){
+      if(event.target.classList.contains('rejected-btn')){
+        const parentNode = event.target.parentNode.parentNode;
+        const jobName = parentNode.querySelector('.job-name').innerText;
+        const jobDegignation =parentNode.querySelector('.job-designation').innerText;
+        const deleteIcon = parentNode.querySelector('.delete-icon').innerText;
+        const location = parentNode.querySelector('.location').innerText;
+        const statusBtn = parentNode.querySelector('.status-btn').innerText;
+        const jobInfo = parentNode.querySelector('.job-info').innerText;
+        const interviewBtn = parentNode.querySelector('.interview-btn').innerText;
+        const rejectedBtn = parentNode.querySelector('.rejected-btn').innerText;
+         parentNode.querySelector('.status-btn').innerText = 'REJECTED';
+
+        //console.log(jobName, jobDegignation, deleteIcon,location, statusBtn, jobInfo);
+        const cardInfo = {
+            jobName,
+            jobDegignation,
+            deleteIcon,
+            location,
+            statusBtn: 'REJECTED',
+            jobInfo,
+            interviewBtn,
+            rejectedBtn
+        }
+        //console.log(cardInfo);
+
+        const jobNameExist = rejectedList.find(item => item.jobName == cardInfo.jobName)
+       
+        if(!jobNameExist){
+            rejectedList.push(cardInfo);
+        }
+        interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName);
+
+        calculateCount();
+        renderRejected();
+        renderInterview();
+    }
+
+})
+
+
